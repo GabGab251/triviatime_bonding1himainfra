@@ -1,0 +1,166 @@
+    @font-face {
+        font-family: 'SpaceFont'; 
+        src: url("../image/font/SPACE.ttf") format("truetype");
+    }
+
+    .background{
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(to bottom, #1b0033, #4b0082);
+        z-index: -3;
+    }
+
+    #stars {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: -1; /* di atas background ungu, tapi di bawah objek */
+        pointer-events: none;
+    }
+
+
+    
+    .back-btn {
+        position: absolute;
+        width: 15%;       
+        height: auto;      
+        bottom: 40px;      
+        left: 42.6%;          
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        animation: pulse 2s infinite;
+        filter: drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #ff00ff);
+        transition: 0.3s;
+    }
+
+    .back-btn:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 30px #ff00ff);
+    }
+
+    @keyframes pulse {
+      0% { filter: drop-shadow(0 0 5px #9d4edd) drop-shadow(0 0 10px #00ffff); }
+      50% { filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 30px #00ffff); }
+      100% { filter: drop-shadow(0 0 5px #9d4edd) drop-shadow(0 0 10px #00ffff); }
+    } 
+
+    .title-howtoplay {
+        text-align: center;
+        margin-top: 100px;
+        font-size: 90px;
+        font-weight: bold;
+        font-family: 'SPACE', sans-serif;
+
+        background: linear-gradient(90deg, #ffffff, #d935ce);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        /* Glow putih dan biru */
+        text-shadow: 0 0 15px rgba(255,255,255,0.6),
+                    0 0 25px rgba(255, 0, 238, 0.6);
+
+        /* Animasi glow*/
+        animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    .instructions {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;   
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .instruction-item {
+        position: relative; /* teks di dalam  */
+        display: inline-block;
+    }
+
+    .instruction-item img {
+        display: block;
+        width: 1333px;
+        height: 128px;
+    }
+
+    .instruction-item .first-text {
+        position: absolute;
+        top: 50%;  
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        margin: 0;
+        color: white;
+        font-size: 28px;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        width: 90%; 
+    }
+
+    .ins-text {
+        position: absolute;
+        top: 50%;  
+        left: 50%;  
+        transform: translate(-50%, -50%); 
+        margin: 0;
+        color: white;
+        font-size: 25px;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        width: 90%;
+    }
+
+    @keyframes glowPulse {
+        0%, 100% {
+            text-shadow: 0 0 15px rgba(255,255,255,0.6),
+                        0 0 25px rgba(0,255,255,0.6);
+        }
+        50% {
+            text-shadow: 0 0 25px rgba(255,255,255,0.9),
+                        0 0 35px rgba(0,255,255,0.9);
+        }
+    }
+
+    /* .first-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        color: white; 
+        font-size: 30px;
+        font-family: 'Poppins', sans-serif;
+    } */
+
+@keyframes floatRandomLeft {
+    0%   { transform: translate(0px, 0px) rotate(0deg); }
+    25%  { transform: translate(20px, -30px) rotate(-3deg); }
+    50%  { transform: translate(0px, -60px) rotate(0deg); }
+    75%  { transform: translate(-20px, -30px) rotate(3deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+@keyframes floatRandomRight {
+    0%   { transform: translate(0px, 0px) rotate(0deg); }
+    25%  { transform: translate(-20px, -40px) rotate(3deg); }
+    50%  { transform: translate(0px, -70px) rotate(0deg); }
+    75%  { transform: translate(20px, -40px) rotate(-3deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.astronaut-left {
+    position: fixed; 
+    bottom: 130px;    
+    left: -100px;   
+    width: 580px;     
+    z-index: 9999;    
+    animation: floatRandomLeft 8s ease-in-out infinite;
+}
+
+.astronaut-right {
+    position: fixed;
+    bottom: 280px;
+    right: -100px;    
+    width: 580px;
+    z-index: 9999;
+    animation: floatRandomRight 9s ease-in-out infinite;
+}
